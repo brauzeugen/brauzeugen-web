@@ -1,0 +1,21 @@
+Rails:
+  Enabled: true
+
+Metrics/LineLength:
+  Max: 120
+
+Style/Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/MixinUsage:
+  Exclude:
+  - 'bin/setup'
+  - 'bin/update'
+
+Metrics/BlockLength:
+  Exclude:
+  - 'spec/**/*.rb'
+
