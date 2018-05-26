@@ -10,9 +10,40 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2018_05_25_235830) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "poll_option_voices", force: :cascade do |t|
+    t.bigint "poll_option_id", null: false
+    t.bigint "voice_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["poll_option_id"], name: "index_poll_option_voices_on_poll_option_id"
+    t.index ["voice_id"], name: "index_poll_option_voices_on_voice_id"
+  end
+
+  create_table "poll_options", force: :cascade do |t|
+    t.text "description"
+    t.bigint "poll_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["poll_id"], name: "index_poll_options_on_poll_id"
+  end
+
+  create_table "polls", force: :cascade do |t|
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "voices", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "poll_option_voices", "poll_options"
+  add_foreign_key "poll_option_voices", "voices"
+  add_foreign_key "poll_options", "polls"
 end
