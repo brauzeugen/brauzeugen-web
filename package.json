@@ -1,5 +1,7 @@
 {
   "name": "brauzeugen",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "qcode-decoder": "^0.1.0"
+  }
 }

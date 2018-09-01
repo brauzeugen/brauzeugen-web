@@ -1,0 +1,19 @@
+<h1>Brauzeugen</h1>
+
+<p>Auf jedem unserer Biere findest du ein Stimmtoken. Wenn du das Token auf deinen Namen einträgst,
+  darfst du bei der Brauerei mit der Reg-Nr.&nbsp;1337 mitbestimmen!</p>
+
+<p>Trage dieses Cryptotoken auf deinen Namen ein:</p>
+
+<p class="token">
+  <strong><%= @voice.token %></strong>
+</p>
+
+<%= form_tag claim_voice_path(@voice), method: :patch, class: 'form' do %>
+  <div class="form-group">
+    <%= label_tag :email, t('.email') %>
+    <%= email_field_tag :email, nil, placeholder: 'moritz@example.com', required: true, class: 'form-control' %>
+  </div>
+    <%= button_tag t('.submit'), type: 'submit', class: 'btn btn-primary float-right' %>
+
+<% end %>

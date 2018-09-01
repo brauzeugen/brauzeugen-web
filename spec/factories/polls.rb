@@ -1,5 +1,5 @@
 FactoryBot.define do
   factory :poll do
-    description 'Abstimmung'
+    description { 'Abstimmung' }
   end
 end

@@ -13,4 +13,8 @@
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
+//= require jquery3
+//= require popper
+//= require bootstrap
+//= require qcode-decoder/build/qcode-decoder.min.js
 //= require_tree .

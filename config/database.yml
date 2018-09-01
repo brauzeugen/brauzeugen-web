@@ -80,6 +80,4 @@ test:
 #
 production:
   <<: *default
-  database: brauzeugen_production
-  username: brauzeugen
-  password: <%= ENV['BRAUZEUGEN_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>

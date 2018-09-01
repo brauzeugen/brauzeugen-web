@@ -1,0 +1,12 @@
+de:
+  voices:
+    new_claim:
+      email: "Email:"
+      submit: "Eintragen!"
+    show:
+      title: "Token"
+      token_intro: "Ausgegeben von der Brauzeugen Brauerei (Reg-Nr.&nbsp;1337) garantiert das Token"
+      email_intro: "eine Stimme derjenigen Person, welche folgende Email-Adresse kontrolliert:"
+  home:
+    index:
+      barrel_image: "Mann, der Bier einschenkt"

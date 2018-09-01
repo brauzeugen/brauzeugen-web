@@ -1,3 +1,7 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  root 'home#index'
+
+  get 'voices/:token', to: 'voices#show', as: :voice
+  get 'voices/:token/claim', to: 'voices#new_claim', as: :claim_voice
+  patch 'voices/:token/claim', to: 'voices#create_claim'
 end

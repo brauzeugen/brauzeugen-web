@@ -12,19 +12,22 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 gem 'jbuilder', '~> 2.5'
 gem 'turbolinks', '~> 5'
+gem 'bootstrap', '~> 4.1.1'
+gem 'jquery-rails'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
 gem 'bootsnap', '>= 1.1.0', require: false
-gem 'omniauth-google-oauth2'
-gem 'rails-env-credentials'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'capybara'
   gem 'factory_bot_rails', '~> 4.0'
   gem 'rspec-rails', '~> 3.7'
-  gem 'rubocop', '~> 0.56.0', require: false
+  gem 'rubocop', require: false
+  gem 'selenium-webdriver'
+  gem 'chromedriver-helper'
   gem 'shoulda-matchers', '~> 3.1'
 end
 

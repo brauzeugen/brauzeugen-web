@@ -1,0 +1,39 @@
+@import "variables";
+@import "bootstrap";
+@import "fonts";
+@import "show";
+
+body {
+  font-family: PfefferMediaeval, 'Open Sans', sans-serif;
+  text-align: justify;
+  padding-top: 2.5rem;
+}
+
+h1, h2, h3 {
+  letter-spacing: 0.1em;
+  font-variant: small-caps;
+  text-align: center;
+}
+
+p {
+  line-height: 133%;
+}
+
+p:first-letter, p .followup-first-letter {
+  color: #FF5722;
+}
+
+p:first-of-type:first-letter {
+  font-size: 250%;
+  float: left;
+  margin-right: 0.15em;
+  font-style: normal;
+  margin-top: 0.2em;
+}
+
+.illustration {
+  display: block;
+  width: 150px;
+  margin: 50px auto 100px auto;
+  filter: opacity(80%);
+}

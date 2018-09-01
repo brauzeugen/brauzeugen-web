@@ -1,0 +1,13 @@
+<h1><%= t('.title') %></h1>
+
+<p><%= t('.token_intro').html_safe %></p>
+
+<p class="token">
+  <strong><%= @voice.token %></strong>
+</p>
+
+<p><%= t('.email_intro') %></p>
+
+<p class="owner">
+  <em><%= @voice.user.email %></em>
+</p>
