@@ -1,0 +1,35 @@
+version: '3'
+volumes:
+
+  pgdata:
+    driver: local
+
+services:
+  redis:
+    image: "redis:alpine"
+
+  db:
+    image: postgres:10.5
+    restart: always
+    expose:
+      - 5432
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: app
+      POSTGRES_PASSWORD: "CHANGEME_PASSWORD"
+      POSTGRES_DB: brauzeugen_app
+
+  app:
+    build: .
+    restart: always
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    environment:
+      RAILS_ENV: "production"
+      SECRET_KEY_BASE: "CHANGEME_KEY"
+      RAILS_MAX_THREADS: 2
+      WEB_CONCURRENCY: 2
+      DATABASE_URL: "postgresql://app:CHANGEME_PASSWORD@db/brauzeugen_app"

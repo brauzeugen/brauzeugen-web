@@ -1,24 +1,25 @@
-# README
+# Brauzeugen
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+The Brauzeugen web app and token management system.
 
-Things you may want to cover:
+## Setup
 
-* Ruby version
+Requires:
+* Ruby 2.5
+* Postgres 9+
 
-* System dependencies
+You can set the project up locally by running:
 
-* Configuration
+    rbenv install
+    gem install bundler
+    bin/setup
 
-* Database creation
+## Run on Docker
 
-* Database initialization
+    docker-compose up -d
 
-* How to run the test suite
+## License
 
-* Services (job queues, cache servers, search engines, etc.)
+Copyright (c) 2018 Josua Schmid
 
-* Deployment instructions
-
-* ...
+Released under AGPLv3
