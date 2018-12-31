@@ -39,8 +39,6 @@ ActiveRecord::Schema.define(version: 2018_05_25_235830) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "provider"
-    t.string "uid"
     t.string "email", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
