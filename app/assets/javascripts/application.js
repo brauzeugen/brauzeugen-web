@@ -16,5 +16,4 @@
 //= require jquery3
 //= require popper
 //= require bootstrap
-//= require qcode-decoder/build/qcode-decoder.min.js
 //= require_tree .
