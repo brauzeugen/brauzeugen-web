@@ -10,30 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_25_235830) do
+ActiveRecord::Schema.define(version: 2019_01_16_204501) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "poll_option_voices", force: :cascade do |t|
-    t.bigint "poll_option_id", null: false
-    t.bigint "voice_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["poll_option_id"], name: "index_poll_option_voices_on_poll_option_id"
-    t.index ["voice_id"], name: "index_poll_option_voices_on_voice_id"
-  end
-
-  create_table "poll_options", force: :cascade do |t|
-    t.text "description"
-    t.bigint "poll_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["poll_id"], name: "index_poll_options_on_poll_id"
-  end
-
-  create_table "polls", force: :cascade do |t|
-    t.text "description"
+  create_table "brew_batches", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -42,6 +25,7 @@ ActiveRecord::Schema.define(version: 2018_05_25_235830) do
     t.string "email", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
   end
 
   create_table "voices", force: :cascade do |t|
@@ -49,11 +33,11 @@ ActiveRecord::Schema.define(version: 2018_05_25_235830) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "brew_batch_id", null: false
+    t.index ["brew_batch_id"], name: "index_voices_on_brew_batch_id"
+    t.index ["token"], name: "index_voices_on_token", unique: true
     t.index ["user_id"], name: "index_voices_on_user_id"
   end
 
-  add_foreign_key "poll_option_voices", "poll_options"
-  add_foreign_key "poll_option_voices", "voices"
-  add_foreign_key "poll_options", "polls"
   add_foreign_key "voices", "users"
 end

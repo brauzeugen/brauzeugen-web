@@ -1,0 +1,21 @@
+<% if @voices.empty? %>
+
+  <p>No voices</p>
+
+<% else %>
+
+  <table class="table">
+    <tr>
+      <th>Token</th>
+      <th>User</th>
+    </tr>
+
+    <% @voices.each do |voice| %>
+      <tr>
+        <td><%= voice.token[0..3] %>…</td>
+        <td><%= voice.user&.email %></td>
+      </tr>
+    <% end %>
+  </table>
+
+<% end %>

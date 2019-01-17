@@ -1,7 +1,9 @@
 class Voice < ApplicationRecord
-  has_many :poll_option_voices, dependent: :destroy
-  has_many :poll_options, through: :poll_option_voices
   belongs_to :user, optional: true
+  belongs_to :brew_batch
+
+  scope :claimed, -> { where.not(user_id: nil) }
+  scope :unclaimed, -> { where(user_id: nil) }
 
   def to_param
     token

@@ -1,0 +1,26 @@
+<table class="table">
+  <tr>
+    <th>Category</th>
+    <th>Amount</th>
+  </tr>
+
+  <tr>
+    <td><%= link_to 'Users', '/admin/users' %></td>
+    <td><%= User.count %></td>
+  </tr>
+
+  <tr>
+    <td><%= link_to 'Totak voices', '/admin/voices' %></td>
+    <td><%= Voice.count %></td>
+  </tr>
+
+  <tr>
+    <td><%= link_to 'Claimed voices', '/admin/voices' %></td>
+    <td><%= Voice.claimed.count %></td>
+  </tr>
+
+  <tr>
+    <td><%= link_to 'Unclaimed voices', '/admin/voices' %></td>
+    <td><%= Voice.unclaimed.count %></td>
+  </tr>
+</table>

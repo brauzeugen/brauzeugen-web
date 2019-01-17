@@ -1,0 +1,21 @@
+<% if @users.empty? %>
+
+  <p>No users</p>
+
+<% else %>
+
+  <table class="table">
+    <tr>
+      <th>Email</th>
+      <th>Token count</th>
+    </tr>
+
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.email %></td>
+        <td><%= user.voices.count %></td>
+      </tr>
+    <% end %>
+  </table>
+
+<% end %>
