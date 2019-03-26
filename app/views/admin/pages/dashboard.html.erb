@@ -1,0 +1,9 @@
+<h1>Dashboard</h1>
+
+<dl>
+  <dt><%= link_to 'Users', '/admin/users' %></dt>
+  <dd><%= User.count %></dd>
+
+  <dt><%= link_to 'Total voices', '/admin/voices' %></dt>
+  <dd><%= Voice.claimed.count %>/<%= Voice.count %> (claimed/total)</dd>
+</dl>

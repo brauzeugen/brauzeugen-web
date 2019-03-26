@@ -1,0 +1,2 @@
+module BrewBatchesHelper
+end

@@ -1,0 +1,33 @@
+<%= form_with(model: [:admin, brew_batch], local: true) do |form| %>
+  <% if brew_batch.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(brew_batch.errors.count, "error") %> prohibited this brew_batch from being saved:</h2>
+
+      <ul>
+      <% brew_batch.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :name %>
+    <%= form.text_field :name, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :description %>
+    <%= form.text_area :description, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :published_at %>
+    <%= form.date_field :published_at, class: 'form-control' %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit class: 'btn btn-primary' %>
+  </div>
+<% end %>
+

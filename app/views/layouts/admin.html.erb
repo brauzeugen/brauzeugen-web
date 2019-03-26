@@ -21,9 +21,10 @@
 
       <header>
         <ul class="list-inline">
-          <li class="list-inline-item"><%= link_to 'Dashboard', '/admin' %></li>
-          <li class="list-inline-item"><%= link_to 'Users', '/admin/users' %></li>
-          <li class="list-inline-item"><%= link_to 'Voices', '/admin/voices' %></li>
+          <li class="list-inline-item"><%= link_to 'Dashboard', admin_path %></li>
+          <li class="list-inline-item"><%= link_to 'Users', admin_users_path %></li>
+          <li class="list-inline-item"><%= link_to 'Voices', admin_voices_path %></li>
+          <li class="list-inline-item"><%= link_to 'Brew batches', admin_brew_batches_path %></li>
         </ul>
       </header>
 

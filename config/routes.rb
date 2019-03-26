@@ -5,7 +5,12 @@ Rails.application.routes.draw do
   get 'voices/:token/claim', to: 'voices#new_claim', as: :claim_voice
   patch 'voices/:token/claim', to: 'voices#create_claim'
 
-  get 'admin/', to: 'admin#dashboard'
-  get 'admin/users', to: 'admin#users'
-  get 'admin/voices', to: 'admin#voices'
+  namespace :admin do
+    get '/', to: 'pages#dashboard'
+    get '/users', to: 'pages#users'
+    get '/voices', to: 'pages#voices'
+
+    resources :brew_batches, except: [:show]
+    patch 'brew_batches/:id/issue_voices', to: 'brew_batches#issue_voices'
+  end
 end

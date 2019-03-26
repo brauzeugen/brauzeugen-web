@@ -1,0 +1,13 @@
+<h1>Editing Brew Batch</h1>
+
+<%= render 'form', brew_batch: @brew_batch %>
+
+<hr>
+
+<% if @brew_batch.voices.empty? %>
+  <%= render 'issue_voices_form', brew_batch: @brew_batch %>
+<% else %>
+  <p>Issued voices: <%= @brew_batch.voices.count %></p>
+<% end %>
+
+<%= link_to 'Back', admin_brew_batches_path %>

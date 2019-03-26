@@ -1,3 +1,5 @@
+<h1>Voices</h1>
+
 <% if @voices.empty? %>
 
   <p>No voices</p>
@@ -8,12 +10,14 @@
     <tr>
       <th>Token</th>
       <th>User</th>
+      <th>Brew batch</th>
     </tr>
 
     <% @voices.each do |voice| %>
       <tr>
         <td><%= voice.token[0..3] %>…</td>
         <td><%= voice.user&.email %></td>
+        <td><%= voice.brew_batch.id %></td>
       </tr>
     <% end %>
   </table>

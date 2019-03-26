@@ -1,0 +1,30 @@
+<h1>Brew Batches</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Published</th>
+      <th>Voices</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @brew_batches.each do |brew_batch| %>
+      <tr>
+        <td><%= brew_batch.name %></td>
+        <td><%= brew_batch.description %></td>
+        <td><%= brew_batch.published_at&.strftime('%Y-%m-%d') %></td>
+        <td><%= brew_batch.voices.count %></td>
+        <td><%= link_to 'Edit', edit_admin_brew_batch_path(brew_batch) %></td>
+        <td><%= link_to 'Destroy', [:admin, brew_batch], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Brew Batch', new_admin_brew_batch_path %>

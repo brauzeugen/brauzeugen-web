@@ -1,0 +1,12 @@
+<%= form_with(url: { action: "issue_voices" }, method: :patch) do |form| %>
+  <%= form.hidden_field :id, value: brew_batch.id %>
+
+  <div class="form-group">
+    <%= form.label :issue_voices_amount %>
+    <%= form.number_field :issue_voices_amount, class: 'form-control' %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit 'Issue voices', class: 'btn btn-primary' %>
+  </div>
+<% end %>
