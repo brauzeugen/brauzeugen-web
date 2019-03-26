@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "brew_batches/index", type: :view do
+RSpec.describe "admin/brew_batches/index", type: :view do
   before(:each) do
     assign(:brew_batches, [
       BrewBatch.create!(

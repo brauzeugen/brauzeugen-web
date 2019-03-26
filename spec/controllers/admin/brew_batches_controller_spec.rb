@@ -23,7 +23,7 @@ require 'rails_helper'
 # removed from Rails core in Rails 5, but can be added back in via the
 # `rails-controller-testing` gem.
 
-RSpec.describe BrewBatchesController, type: :controller do
+RSpec.describe Admin::BrewBatchesController, type: :controller do
 
   # This should return the minimal set of attributes required to create a valid
   # BrewBatch. As you add validations to BrewBatch, be sure to
@@ -40,6 +40,10 @@ RSpec.describe BrewBatchesController, type: :controller do
   # in order to pass any filters (e.g. authentication) defined in
   # BrewBatchesController. Be sure to keep this updated too.
   let(:valid_session) { {} }
+
+  before do
+    @request.env['HTTP_AUTHORIZATION'] = "Basic #{Base64::encode64('admin:')}"
+  end
 
   describe "GET #index" do
     it "returns a success response" do

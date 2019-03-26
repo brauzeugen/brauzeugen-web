@@ -75,3 +75,11 @@ Shoulda::Matchers.configure do |config|
     with.library :active_model
   end
 end
+
+def http_basic_auth_env
+  user = 'admin'
+  password = ''
+  {
+    HTTP_AUTHORIZATION: ActionController::HttpAuthentication::Basic.encode_credentials(user, password)
+  }
+end

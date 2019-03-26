@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "brew_batches/edit", type: :view do
+RSpec.describe "admin/brew_batches/edit", type: :view do
   before(:each) do
     @brew_batch = assign(:brew_batch, BrewBatch.create!(
       :name => "MyString",
