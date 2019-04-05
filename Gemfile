@@ -6,7 +6,7 @@ ruby File.read('.ruby-version')
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.11'
 gem 'rails', '~> 5.2.0'
-gem 'sass-rails', '~> 5.0'
+gem 'sass-rails', '>= 6.0.0.beta2'
 gem 'uglifier', '>= 1.3.0'
 
 gem 'coffee-rails', '~> 4.2'
