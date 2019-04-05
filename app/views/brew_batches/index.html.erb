@@ -11,7 +11,7 @@
 
     <% if brew_batch.published_at %>
       <dt class="col-sm-3">Freigabe</dt>
-      <dd class="col-sm-9"><%= brew_batch.published_at %></dd>
+      <dd class="col-sm-9"><%= brew_batch.published_at.strftime('%Y-%m-%d') %></dd>
     <% end %>
 
     <% if brew_batch.published_amount %>
