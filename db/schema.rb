@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 2019_03_02_144005) do
     t.datetime "updated_at", null: false
     t.text "description"
     t.datetime "published_at"
+    t.string "published_amount"
   end
 
   create_table "users", force: :cascade do |t|

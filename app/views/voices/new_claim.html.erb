@@ -3,6 +3,9 @@
 <p>Auf jedem unserer Biere findest du ein Stimmtoken. Wenn du das Token auf deinen Namen einträgst,
   darfst du bei der Brauerei mit der Reg-Nr.&nbsp;1337 mitbestimmen!</p>
 
+<p><strong>Zudem:</strong><br/>Du hast ein Reservations-/Vorkaufsrecht an vom Vereinsvorstand
+  freigegebenen Braugängen entsprechend deinem Tokenanteil.</p>
+
 <p>Trage dieses Cryptotoken auf deinen Namen ein:</p>
 
 <p class="token">
@@ -14,6 +17,7 @@
     <%= label_tag :email, t('.email') %>
     <%= email_field_tag :email, nil, placeholder: 'moritz@example.com', required: true, class: 'form-control' %>
   </div>
-    <%= button_tag t('.submit'), type: 'submit', class: 'btn btn-primary float-right' %>
 
+  <button class="btn btn-primary float-left" onclick="window.print();">Drucken</button>
+  <%= button_tag t('.submit'), type: 'submit', class: 'btn btn-primary float-right' %>
 <% end %>

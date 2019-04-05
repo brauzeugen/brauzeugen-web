@@ -1,0 +1,22 @@
+<%= link_to 'Startseite', root_path %>
+<h1>Unsere Braugänge</h1>
+
+<% @brew_batches.order(published_at: :desc).each do |brew_batch| %>
+  <h2><%= brew_batch.name %></h2>
+  <p><%= brew_batch.description %></p>
+
+  <dl class="row">
+    <dt class="col-sm-3">Nummer</dt>
+    <dd class="col-sm-9"><%= brew_batch.id %></dd>
+
+    <% if brew_batch.published_at %>
+      <dt class="col-sm-3">Freigabe</dt>
+      <dd class="col-sm-9"><%= brew_batch.published_at %></dd>
+    <% end %>
+
+    <% if brew_batch.published_amount %>
+      <dt class="col-sm-3">Menge</dt>
+      <dd class="col-sm-9"><%= brew_batch.published_amount %></dd>
+    <% end %>
+  </dl>
+<% end %>

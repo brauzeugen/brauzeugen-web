@@ -1,14 +1,10 @@
 module Admin
   class BrewBatchesController < AdminController
-    before_action :set_brew_batch, only: [:edit, :update, :destroy, :issue_voices]
+    before_action :set_brew_batch, only: [:edit, :update, :destroy, :issue_voices, :show_labels]
 
     # GET /brew_batches
     def index
       @brew_batches = BrewBatch.all
-    end
-
-    # GET /brew_batches/1
-    def show
     end
 
     # GET /brew_batches/new
@@ -65,6 +61,12 @@ module Admin
         redirect_to admin_brew_batches_url, notice: "Issued #{issue_voices_amount} voices for #{@brew_batch.name}"
       else
         redirect_to admin_brew_batches_url, error: 'No correct amount. No voices issued.'
+      end
+    end
+
+    def show_labels
+      respond_to do |format|
+        format.xlsx
       end
     end
 

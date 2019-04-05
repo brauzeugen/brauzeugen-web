@@ -2,10 +2,12 @@
   <h1>Brauzeugen</h1>
 
   <p>Guten Tag, Wanderer! Du hast dir ein
-    <strong>gutes Bier</strong> verdient – und
+    <strong><%= link_to 'gutes Bier', brew_batches_path %></strong> verdient – und
     genau solches brauen wir. Der richtige Einsatz feiner Nasen und
     geschickter Handwerkskunst führt zu unserem zerbrechlichen und
     doch so starken Gebräu.</p>
+  <p></p>
+
 
   <p>Du bist herzlich zum Verkosten eingeladen. Melde
     dich bei:
@@ -44,6 +46,8 @@
     was auf dem Markt erhältlich ist. Wir wollen Bier das neben dem Charakter und der
     Qualität eine passende Geschichte bietet. So soll es auch nicht immer von gleicher Art sein.
   </p>
+
+  <p><%= link_to 'Zu den Braugängen', brew_batches_path %></p>
 
 </section>
 

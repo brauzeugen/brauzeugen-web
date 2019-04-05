@@ -15,9 +15,12 @@
     <% @brew_batches.each do |brew_batch| %>
       <tr>
         <td><%= brew_batch.name %></td>
-        <td><%= brew_batch.description %></td>
+        <td><%= brew_batch.description.first(100) %>…</td>
         <td><%= brew_batch.published_at&.strftime('%Y-%m-%d') %></td>
-        <td><%= brew_batch.voices.count %></td>
+        <td>
+          <%= brew_batch.voices.count %>
+          <%= link_to '🏷', admin_show_labels_path(brew_batch, format: :xlsx) %>
+        </td>
         <td><%= link_to 'Edit', edit_admin_brew_batch_path(brew_batch) %></td>
         <td><%= link_to 'Destroy', [:admin, brew_batch], method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
