@@ -78,7 +78,7 @@ module Admin
 
       # Never trust parameters from the scary internet, only allow the white list through.
       def brew_batch_params
-        params.require(:brew_batch).permit(:name, :description, :published_at)
+        params.require(:brew_batch).permit(:name, :description, :published_at, :published_amount)
       end
   end
 end
