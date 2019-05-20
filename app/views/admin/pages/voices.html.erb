@@ -8,13 +8,15 @@
 
   <table class="table">
     <tr>
+      <th>Id</th>
       <th>Token</th>
       <th>User</th>
       <th>Brew batch</th>
     </tr>
 
-    <% @voices.each do |voice| %>
+    <% @voices.order(:id).each do |voice| %>
       <tr>
+        <td><%= voice.id %></td>
         <td><%= voice.token[0..3] %>…</td>
         <td><%= voice.user&.email %></td>
         <td><%= voice.brew_batch.id %></td>
