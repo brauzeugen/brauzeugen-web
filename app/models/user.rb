@@ -1,7 +1,5 @@
 class User < ApplicationRecord
-  has_many :voices
+  has_many :voices, dependent: :nullify
 
-  def claim_voice!
-
-  end
+  def claim_voice!; end
 end

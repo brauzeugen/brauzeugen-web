@@ -1,6 +1,6 @@
 module Admin
   class BrewBatchesController < AdminController
-    before_action :set_brew_batch, only: [:edit, :update, :destroy, :issue_voices, :show_labels]
+    before_action :set_brew_batch, only: %i[edit update destroy issue_voices show_labels]
 
     # GET /brew_batches
     def index
@@ -13,8 +13,7 @@ module Admin
     end
 
     # GET /brew_batches/1/edit
-    def edit
-    end
+    def edit; end
 
     # POST /brew_batches
     def create
@@ -42,11 +41,11 @@ module Admin
 
     # DELETE /brew_batches/1
     def destroy
-        if @brew_batch.destroy
-          redirect_to admin_brew_batches_url, notice: 'Batch was successfully destroyed.'
-        else
-          redirect_to admin_brew_batches_url, error: 'Batch could not be created.'
-        end
+      if @brew_batch.destroy
+        redirect_to admin_brew_batches_url, notice: 'Batch was successfully destroyed.'
+      else
+        redirect_to admin_brew_batches_url, error: 'Batch could not be created.'
+      end
     end
 
     def issue_voices
@@ -71,14 +70,15 @@ module Admin
     end
 
     private
-      # Use callbacks to share common setup or constraints between actions.
-      def set_brew_batch
-        @brew_batch = BrewBatch.find(params[:id])
-      end
 
-      # Never trust parameters from the scary internet, only allow the white list through.
-      def brew_batch_params
-        params.require(:brew_batch).permit(:name, :description, :published_at, :published_amount)
-      end
+    # Use callbacks to share common setup or constraints between actions.
+    def set_brew_batch
+      @brew_batch = BrewBatch.find(params[:id])
+    end
+
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def brew_batch_params
+      params.require(:brew_batch).permit(:name, :description, :published_at, :published_amount)
+    end
   end
 end

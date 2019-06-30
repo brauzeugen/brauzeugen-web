@@ -10,37 +10,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_02_144005) do
-
+ActiveRecord::Schema.define(version: 20_190_302_144_005) do
   # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+  enable_extension 'plpgsql'
 
-  create_table "brew_batches", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.text "description"
-    t.datetime "published_at"
-    t.string "published_amount"
+  create_table 'brew_batches', force: :cascade do |t|
+    t.string 'name'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.text 'description'
+    t.datetime 'published_at'
+    t.string 'published_amount'
   end
 
-  create_table "users", force: :cascade do |t|
-    t.string "email", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["email"], name: "index_users_on_email", unique: true
+  create_table 'users', force: :cascade do |t|
+    t.string 'email', null: false
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.index ['email'], name: 'index_users_on_email', unique: true
   end
 
-  create_table "voices", force: :cascade do |t|
-    t.string "token", null: false
-    t.bigint "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "brew_batch_id", null: false
-    t.index ["brew_batch_id"], name: "index_voices_on_brew_batch_id"
-    t.index ["token"], name: "index_voices_on_token", unique: true
-    t.index ["user_id"], name: "index_voices_on_user_id"
+  create_table 'voices', force: :cascade do |t|
+    t.string 'token', null: false
+    t.bigint 'user_id'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.bigint 'brew_batch_id', null: false
+    t.index ['brew_batch_id'], name: 'index_voices_on_brew_batch_id'
+    t.index ['token'], name: 'index_voices_on_token', unique: true
+    t.index ['user_id'], name: 'index_voices_on_user_id'
   end
 
-  add_foreign_key "voices", "users"
+  add_foreign_key 'voices', 'users'
 end

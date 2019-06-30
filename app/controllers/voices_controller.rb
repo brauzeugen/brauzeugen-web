@@ -12,8 +12,7 @@ class VoicesController < ApplicationController
   end
 
   # GET /voices/:token/claim
-  def new_claim
-  end
+  def new_claim; end
 
   # PATCH /voices/:token/claim
   def create_claim

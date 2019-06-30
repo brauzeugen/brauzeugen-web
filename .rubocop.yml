@@ -1,5 +1,4 @@
-Rails:
-  Enabled: true
+require: rubocop-rails
 
 Metrics/LineLength:
   Max: 120

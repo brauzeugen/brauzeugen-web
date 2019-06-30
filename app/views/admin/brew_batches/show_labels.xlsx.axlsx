@@ -1,7 +1,7 @@
 wb = xlsx_package.workbook
 
 wb.add_worksheet(name: "Voices for Batch #{@brew_batch.id}") do |sheet|
-  sheet.add_row %w(id token user)
+  sheet.add_row %w[id token user]
 
   # each user is a row on your spreadsheet
   @brew_batch.voices.each do |voice|
