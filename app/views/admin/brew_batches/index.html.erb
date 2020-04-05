@@ -3,6 +3,7 @@
 <table class="table">
   <thead>
     <tr>
+      <th>Batch-Bez.</th>
       <th>Name</th>
       <th>Description</th>
       <th>Published</th>
@@ -14,6 +15,7 @@
   <tbody>
     <% @brew_batches.each do |brew_batch| %>
       <tr>
+        <td><%= brew_batch.serial_number %></td>
         <td><%= brew_batch.name %></td>
         <td><%= brew_batch.description.first(100) %>…</td>
         <td><%= brew_batch.published_at&.strftime('%Y-%m-%d') %></td>

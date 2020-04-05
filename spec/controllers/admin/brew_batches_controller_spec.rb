@@ -28,11 +28,11 @@ RSpec.describe Admin::BrewBatchesController, type: :controller do
   # BrewBatch. As you add validations to BrewBatch, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) do
-    skip('Add a hash of attributes valid for your model')
+    { serial_number: 'BG19-30', name: 'Nadines Nonnenbräu' }
   end
 
   let(:invalid_attributes) do
-    skip('Add a hash of attributes invalid for your model')
+    { serial_number: nil, name: 'Brauzeugen Amber' }
   end
 
   # This should return the minimal set of values that should be in the session
@@ -48,14 +48,6 @@ RSpec.describe Admin::BrewBatchesController, type: :controller do
     it 'returns a success response' do
       BrewBatch.create! valid_attributes
       get :index, params: {}, session: valid_session
-      expect(response).to be_successful
-    end
-  end
-
-  describe 'GET #show' do
-    it 'returns a success response' do
-      brew_batch = BrewBatch.create! valid_attributes
-      get :show, params: { id: brew_batch.to_param }, session: valid_session
       expect(response).to be_successful
     end
   end
@@ -85,7 +77,7 @@ RSpec.describe Admin::BrewBatchesController, type: :controller do
 
       it 'redirects to the created brew_batch' do
         post :create, params: { brew_batch: valid_attributes }, session: valid_session
-        expect(response).to redirect_to(BrewBatch.last)
+        expect(response).to redirect_to(admin_brew_batches_url)
       end
     end
 
@@ -113,7 +105,7 @@ RSpec.describe Admin::BrewBatchesController, type: :controller do
       it 'redirects to the brew_batch' do
         brew_batch = BrewBatch.create! valid_attributes
         put :update, params: { id: brew_batch.to_param, brew_batch: valid_attributes }, session: valid_session
-        expect(response).to redirect_to(brew_batch)
+        expect(response).to redirect_to(admin_brew_batches_url)
       end
     end
 
