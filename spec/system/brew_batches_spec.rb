@@ -13,13 +13,13 @@ RSpec.describe 'Brew batches', type: :system do
     expect(page).not_to have_text(second_unpublished.name)
   end
 
-  it 'orders batches with serial number' do
-    create(:brew_batch, published_at: 1.minute.ago, serial_number: 'BG20-01')
-    create(:brew_batch, published_at: 1.minute.ago, serial_number: 'BG19-20')
-    create(:brew_batch, published_at: 1.minute.ago, serial_number: 'BG19-01')
+  it 'orders batches with publishing date' do
+    create(:brew_batch, published_at: 1.minute.ago, serial_number: 'BG20-A')
+    create(:brew_batch, published_at: 2.minute.ago, serial_number: 'BG20-B')
+    create(:brew_batch, published_at: 3.minute.ago, serial_number: 'BG20-C')
 
     visit brew_batches_path
 
-    expect(page).to have_text(/BG20-01.*BG19-20.*BG19-01/m)
+    expect(page).to have_text(/BG20-A.*BG20-B.*BG20-C/m)
   end
 end
