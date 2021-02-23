@@ -5,7 +5,7 @@ ruby File.read('.ruby-version')
 
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma'
-gem 'rails', '~> 6.0.0'
+gem 'rails', '~> 6.1.0'
 gem 'sass-rails', '>= 6.0.0.beta2'
 
 gem 'bootstrap', '>= 4.3.1'
