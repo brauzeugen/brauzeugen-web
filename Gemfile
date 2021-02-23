@@ -10,17 +10,11 @@ gem 'sass-rails', '>= 6.0.0.beta2'
 gem 'uglifier', '>= 1.3.0'
 
 gem 'bootstrap', '>= 4.3.1'
-gem 'coffee-rails'
-gem 'jbuilder'
 gem 'jquery-rails'
 gem 'turbolinks'
 
-gem 'axlsx', git: 'https://github.com/randym/axlsx.git', ref: 'c8ac844'
-gem 'axlsx_rails'
-gem 'rubyzip', '>= 1.2.1'
-
-# Use ActiveStorage variant
-# gem 'mini_magick', '~> 4.8'
+gem 'caxlsx'
+gem 'caxlsx_rails'
 
 gem 'bootsnap', '>= 1.1.0', require: false
 
