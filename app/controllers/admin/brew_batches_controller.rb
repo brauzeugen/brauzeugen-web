@@ -4,7 +4,7 @@ module Admin
 
     # GET /brew_batches
     def index
-      @brew_batches = BrewBatch.all.order(serial_number: :desc)
+      @brew_batches = BrewBatch.order(serial_number: :desc)
     end
 
     # GET /brew_batches/new

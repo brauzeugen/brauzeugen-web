@@ -1,9 +1,9 @@
 require 'rails_helper'
 
-RSpec.describe BrewBatch, type: :model do
+RSpec.describe Claim, type: :model do
   describe 'factory' do
     it 'works' do
-      create(:brew_batch)
+      create(:claim)
     end
   end
 end

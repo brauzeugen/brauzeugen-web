@@ -14,5 +14,7 @@ Rails.application.routes.draw do
     resources :brew_batches, except: [:show]
     patch 'brew_batches/:id/issue_voices', to: 'brew_batches#issue_voices', as: :issue_voices
     get 'brew_batches/:id/show_labels', to: 'brew_batches#show_labels', as: :show_labels
+
+    resources :releases
   end
 end

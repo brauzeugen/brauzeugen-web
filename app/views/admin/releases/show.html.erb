@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Mail template:</strong>
+  <%= @release.email_template %>
+</p>
+
+<p>
+  <strong>Claim limit:</strong>
+  <%= @release.claim_limit %>
+</p>
+
+<%= link_to 'Edit', edit_admin_release_path(@release) %> |
+<%= link_to 'Back', admin_releases_path %>

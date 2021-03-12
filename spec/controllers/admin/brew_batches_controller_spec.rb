@@ -92,14 +92,14 @@ RSpec.describe Admin::BrewBatchesController, type: :controller do
   describe 'PUT #update' do
     context 'with valid params' do
       let(:new_attributes) do
-        skip('Add a hash of attributes valid for your model')
+        { serial_number: 'BG19-30', name: "Ale 'o' World" }
       end
 
       it 'updates the requested brew_batch' do
         brew_batch = BrewBatch.create! valid_attributes
         put :update, params: { id: brew_batch.to_param, brew_batch: new_attributes }, session: valid_session
         brew_batch.reload
-        skip('Add assertions for updated state')
+        expect(brew_batch.name).to eq("Ale 'o' World")
       end
 
       it 'redirects to the brew_batch' do

@@ -15,8 +15,8 @@ RSpec.describe 'Brew batches', type: :system do
 
   it 'orders batches with publishing date' do
     create(:brew_batch, published_at: 1.minute.ago, serial_number: 'BG20-A')
-    create(:brew_batch, published_at: 2.minute.ago, serial_number: 'BG20-B')
-    create(:brew_batch, published_at: 3.minute.ago, serial_number: 'BG20-C')
+    create(:brew_batch, published_at: 2.minutes.ago, serial_number: 'BG20-B')
+    create(:brew_batch, published_at: 3.minutes.ago, serial_number: 'BG20-C')
 
     visit brew_batches_path
 
