@@ -6,9 +6,9 @@ ruby File.read('.ruby-version')
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma'
 gem 'rails', '~> 6.1.0'
-gem 'sass-rails', '>= 6.0.0.beta2'
+gem 'sass-rails', '~> 6.0'
 
-gem 'bootstrap', '>= 4.3.1'
+gem 'bootstrap', '~> 4.6'
 gem 'jquery-rails'
 gem 'turbolinks'
 
