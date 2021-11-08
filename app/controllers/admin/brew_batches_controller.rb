@@ -65,7 +65,9 @@ module Admin
 
     def show_labels
       respond_to do |format|
-        format.xlsx
+        format.xlsx do
+          headers["Content-Disposition"] = "attachment; filename=\"#{@brew_batch.serial_number}-Voices.xlsx\""
+        end
       end
     end
 
