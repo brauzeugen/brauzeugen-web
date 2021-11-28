@@ -1,6 +1,6 @@
 module Admin
-  class ReleasesController < ApplicationController
-    before_action :set_release, only: %i[show edit update destroy]
+  class ReleasesController < AdminController
+    before_action :set_release, only: %i[show edit update destroy notify]
 
     # GET /admin/releases
     def index
@@ -44,6 +44,12 @@ module Admin
       redirect_to admin_releases_url, notice: 'Release was successfully destroyed.'
     end
 
+    # PATCH /admin/releases/1/notify
+    def notify
+      @release.update(notification_sent_at: Time.current)
+      redirect_to [:admin, @release], notice: 'Email was successfully sent'
+    end
+
     private
 
     # Use callbacks to share common setup or constraints between actions.
@@ -53,7 +59,7 @@ module Admin
 
     # Only allow a list of trusted parameters through.
     def release_params
-      params.require(:release).permit(:email_template)
+      params.require(:release).permit(:email_template, :distributable_total)
     end
   end
 end

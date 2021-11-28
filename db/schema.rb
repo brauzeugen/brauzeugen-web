@@ -38,8 +38,10 @@ ActiveRecord::Schema.define(version: 2021_11_26_203051) do
 
   create_table "releases", force: :cascade do |t|
     t.text "email_template"
+    t.integer "distributable_total", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.datetime "notification_sent_at"
   end
 
   create_table "users", force: :cascade do |t|

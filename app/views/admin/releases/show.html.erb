@@ -1,8 +1,43 @@
 <p id="notice"><%= notice %></p>
 
+<h1>Release<small> <em><%= @release.created_at %></em></small></h1>
+
 <p>
   <strong>Mail template:</strong>
   <%= @release.email_template %>
+</p>
+
+<p>
+  <strong>Distributable total:</strong>
+  <%= @release.distributable_total %>
+</p>
+
+<% if @release.entitlements.any? %>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>Email</th>
+      <th>Entitlement value</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @release.entitlements.each do |entitlement| %>
+      <tr>
+        <td><%= entitlement.user.email %></td>
+        <td><%= entitlement.value %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+<% end %>
+
+<p>
+  <strong>Notification email:</strong>
+  <% if @release.notification_sent_at %>
+    Sent at: <%= @release.notification_sent_at %>
+  <% else %>
+    <%= button_to 'Send email', notify_admin_release_path, method: :patch, data: { confirm: 'Are you sure?', disable_with: 'sending…' }, class: 'btn btn-primary' %>
+  <% end %>
 </p>
 
 <%= link_to 'Edit', edit_admin_release_path(@release) %> |
