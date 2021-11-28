@@ -16,11 +16,7 @@ RSpec.describe '/admin/releases', type: :request do
   # Release. As you add validations to Release, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) do
-    { claim_limit: 50, email_template: 'Hi all' }
-  end
-
-  let(:invalid_attributes) do
-    { claim_limit: -1 }
+    { email_template: 'Hi all' }
   end
 
   describe 'GET /index' do
@@ -67,25 +63,12 @@ RSpec.describe '/admin/releases', type: :request do
         expect(response).to redirect_to(admin_release_url(Release.last))
       end
     end
-
-    context 'with invalid parameters' do
-      it 'does not create a new Release' do
-        expect do
-          post admin_releases_url, params: { release: invalid_attributes }
-        end.to change(Release, :count).by(0)
-      end
-
-      it "renders a successful response (i.e. to display the 'new' template)" do
-        post admin_releases_url, params: { release: invalid_attributes }
-        expect(response).to be_successful
-      end
-    end
   end
 
   describe 'PATCH /update' do
     context 'with valid parameters' do
       let(:new_attributes) do
-        { claim_limit: 50, email_template: 'Hi you!' }
+        { email_template: 'Hi you!' }
       end
 
       it 'updates the requested release' do
@@ -100,14 +83,6 @@ RSpec.describe '/admin/releases', type: :request do
         patch admin_release_url(release), params: { release: new_attributes }
         release.reload
         expect(response).to redirect_to(admin_release_url(release))
-      end
-    end
-
-    context 'with invalid parameters' do
-      it "renders a successful response (i.e. to display the 'edit' template)" do
-        release = Release.create! valid_attributes
-        patch admin_release_url(release), params: { release: invalid_attributes }
-        expect(response).to be_successful
       end
     end
   end

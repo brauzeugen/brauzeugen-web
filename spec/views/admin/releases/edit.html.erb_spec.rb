@@ -3,8 +3,7 @@ require 'rails_helper'
 RSpec.describe 'admin/releases/edit', type: :view do
   before(:each) do
     @release = assign(:release, Release.create!(
-                                  email_template: 'MyText',
-                                  claim_limit: 1
+                                  email_template: 'MyText'
                                 ))
   end
 
@@ -13,8 +12,6 @@ RSpec.describe 'admin/releases/edit', type: :view do
 
     assert_select 'form[action=?][method=?]', admin_release_path(@release), 'post' do
       assert_select 'textarea[name=?]', 'release[email_template]'
-
-      assert_select 'input[name=?]', 'release[claim_limit]'
     end
   end
 end

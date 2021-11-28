@@ -1,9 +1,9 @@
 require 'rails_helper'
 
-RSpec.describe Claim, type: :model do
+RSpec.describe Entitlement, type: :model do
   describe 'factory' do
     it 'works' do
-      create(:claim)
+      create(:entitlement)
     end
   end
 end

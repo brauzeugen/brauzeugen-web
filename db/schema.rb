@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_12_210257) do
+ActiveRecord::Schema.define(version: 2021_11_26_203051) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,20 +25,19 @@ ActiveRecord::Schema.define(version: 2021_03_12_210257) do
     t.string "serial_number", default: "BG??-??", null: false
   end
 
-  create_table "claims", force: :cascade do |t|
+  create_table "entitlements", force: :cascade do |t|
     t.bigint "release_id", null: false
     t.bigint "user_id", null: false
-    t.boolean "fulfilled", default: false, null: false
+    t.boolean "paid", default: false, null: false
     t.integer "value", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["release_id"], name: "index_claims_on_release_id"
-    t.index ["user_id"], name: "index_claims_on_user_id"
+    t.index ["release_id"], name: "index_entitlements_on_release_id"
+    t.index ["user_id"], name: "index_entitlements_on_user_id"
   end
 
   create_table "releases", force: :cascade do |t|
     t.text "email_template"
-    t.integer "claim_limit", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -61,7 +60,7 @@ ActiveRecord::Schema.define(version: 2021_03_12_210257) do
     t.index ["user_id"], name: "index_voices_on_user_id"
   end
 
-  add_foreign_key "claims", "releases"
-  add_foreign_key "claims", "users"
+  add_foreign_key "entitlements", "releases"
+  add_foreign_key "entitlements", "users"
   add_foreign_key "voices", "users"
 end

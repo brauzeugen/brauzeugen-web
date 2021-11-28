@@ -1,8 +1,8 @@
 FactoryBot.define do
-  factory :claim do
+  factory :entitlement do
     release
     user
     value { 1 }
-    fulfilled { false }
+    paid { false }
   end
 end

@@ -15,7 +15,6 @@
     <% @releases.each do |release| %>
       <tr>
         <td><%= release.email_template %></td>
-        <td><%= release.claim_limit %></td>
         <td><%= link_to 'Show', [:admin, release] %></td>
         <td><%= link_to 'Edit', edit_admin_release_path(release) %></td>
         <td><%= link_to 'Destroy', [:admin, release], method: :delete, data: { confirm: 'Are you sure?' } %></td>

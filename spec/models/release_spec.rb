@@ -7,5 +7,5 @@ RSpec.describe Release, type: :model do
     end
   end
 
-  it { is_expected.to have_many(:claims) }
+  it { is_expected.to have_many(:entitlements) }
 end
