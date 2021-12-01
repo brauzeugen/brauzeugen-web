@@ -30,14 +30,14 @@ RSpec.describe '/admin/releases', type: :request do
   describe 'GET /show' do
     it 'renders a successful response' do
       release = Release.create! valid_attributes
-      get admin_release_url(release)
+      get admin_release_url(release), env: http_basic_auth_env
       expect(response).to be_successful
     end
   end
 
   describe 'GET /new' do
     it 'renders a successful response' do
-      get new_admin_release_url
+      get new_admin_release_url, env: http_basic_auth_env
       expect(response).to be_successful
     end
   end
@@ -45,7 +45,7 @@ RSpec.describe '/admin/releases', type: :request do
   describe 'GET /edit' do
     it 'render a successful response' do
       release = Release.create! valid_attributes
-      get edit_admin_release_url(release)
+      get edit_admin_release_url(release), env: http_basic_auth_env
       expect(response).to be_successful
     end
   end
@@ -54,12 +54,12 @@ RSpec.describe '/admin/releases', type: :request do
     context 'with valid parameters' do
       it 'creates a new Release' do
         expect do
-          post admin_releases_url, params: { release: valid_attributes }
+          post admin_releases_url, params: { release: valid_attributes }, env: http_basic_auth_env
         end.to change(Release, :count).by(1)
       end
 
       it 'redirects to the created release' do
-        post admin_releases_url, params: { release: valid_attributes }
+        post admin_releases_url, params: { release: valid_attributes }, env: http_basic_auth_env
         expect(response).to redirect_to(admin_release_url(Release.last))
       end
     end
@@ -73,14 +73,14 @@ RSpec.describe '/admin/releases', type: :request do
 
       it 'updates the requested release' do
         release = Release.create! valid_attributes
-        patch admin_release_url(release), params: { release: new_attributes }
+        patch admin_release_url(release), params: { release: new_attributes }, env: http_basic_auth_env
         release.reload
         expect(release.email_template).to eq('Hi you!')
       end
 
       it 'redirects to the release' do
         release = Release.create! valid_attributes
-        patch admin_release_url(release), params: { release: new_attributes }
+        patch admin_release_url(release), params: { release: new_attributes }, env: http_basic_auth_env
         release.reload
         expect(response).to redirect_to(admin_release_url(release))
       end
@@ -91,13 +91,13 @@ RSpec.describe '/admin/releases', type: :request do
     it 'destroys the requested release' do
       release = Release.create! valid_attributes
       expect do
-        delete admin_release_url(release)
+        delete admin_release_url(release), env: http_basic_auth_env
       end.to change(Release, :count).by(-1)
     end
 
     it 'redirects to the releases list' do
       release = Release.create! valid_attributes
-      delete admin_release_url(release)
+      delete admin_release_url(release), env: http_basic_auth_env
       expect(response).to redirect_to(admin_releases_url)
     end
   end
