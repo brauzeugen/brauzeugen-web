@@ -40,13 +40,17 @@ module Admin
 
     # DELETE /admin/releases/1
     def destroy
-      @release.destroy
+      @release.destroy!
       redirect_to admin_releases_url, notice: 'Release was successfully destroyed.'
     end
 
     # PATCH /admin/releases/1/notify
     def notify
-      @release.update(notification_sent_at: Time.current)
+      @release.touch(:notification_sent_at)
+      @release.entitlements.includes(:user).each do |entitlement|
+        UserMailer.with(entitlement: entitlement).release_email.deliver_later
+      end
+
       redirect_to [:admin, @release], notice: 'Email was successfully sent'
     end
 
@@ -59,7 +63,7 @@ module Admin
 
     # Only allow a list of trusted parameters through.
     def release_params
-      params.require(:release).permit(:email_template, :distributable_total)
+      params.require(:release).permit(:email_template, :email_subject, :distributable_total)
     end
   end
 end

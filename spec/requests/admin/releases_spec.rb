@@ -16,13 +16,13 @@ RSpec.describe '/admin/releases', type: :request do
   # Release. As you add validations to Release, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) do
-    { email_template: 'Hi all' }
+    { email_subject: 'Yay', email_template: 'Hi all', distributable_total: 10 }
   end
 
   describe 'GET /index' do
     it 'renders a successful response' do
       Release.create! valid_attributes
-      get admin_releases_url
+      get admin_releases_url, env: http_basic_auth_env
       expect(response).to be_successful
     end
   end

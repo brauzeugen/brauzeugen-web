@@ -2,9 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'admin/releases/edit', type: :view do
   before(:each) do
-    @release = assign(:release, Release.create!(
-                                  email_template: 'MyText'
-                                ))
+    @release = assign(:release, create(:release))
   end
 
   it 'renders the edit release form' do

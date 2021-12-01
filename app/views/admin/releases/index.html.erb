@@ -5,8 +5,8 @@
 <table>
   <thead>
     <tr>
-      <th>Mail template</th>
-      <th>Claim limit</th>
+      <th>Mail subject</th>
+      <th>Distributable total</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -14,7 +14,8 @@
   <tbody>
     <% @releases.each do |release| %>
       <tr>
-        <td><%= release.email_template %></td>
+        <td><%= release.email_subject %></td>
+        <td><%= release.distributable_total %></td>
         <td><%= link_to 'Show', [:admin, release] %></td>
         <td><%= link_to 'Edit', edit_admin_release_path(release) %></td>
         <td><%= link_to 'Destroy', [:admin, release], method: :delete, data: { confirm: 'Are you sure?' } %></td>

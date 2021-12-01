@@ -2,14 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'admin/releases/index', type: :view do
   before(:each) do
-    assign(:releases, [
-             Release.create!(
-               email_template: 'MyText'
-             ),
-             Release.create!(
-               email_template: 'MyText'
-             )
-           ])
+    assign(:releases, create_list(:release, 2, email_subject: 'MyText'))
   end
 
   it 'renders a list of admin/releases' do

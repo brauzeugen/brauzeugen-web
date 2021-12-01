@@ -23,4 +23,14 @@ User.create!(email: 'bieri@example.com', voices: Voice.all.sample(5))
 User.create!(email: 'birnbaum@example.com', voices: Voice.all.sample(3))
 User.create!(email: 'birwinken@example.com')
 
+ Release.create!(email_subject: 'Heute Freigabe', email_template: <<~EMAIL_TEMPLATE, distributable_total: 132)
+An das Brauzeugi mit der E-Mail %{user_email}
+
+Wir haben soeben %{release_distributable_total} Biere freigegeben.
+%{user_voices_count} Stimmen berechtigen dich zu %{entitlement_value} Bieren aus der Freigabe.
+
+Beste Grüsse
+Brauzeugen
+EMAIL_TEMPLATE
+
 puts 'seeded successfully.'

@@ -4,7 +4,7 @@
 
 <p>
   <strong>Mail template:</strong>
-  <%= @release.email_template %>
+  <pre><%= @release.email_template %></pre>
 </p>
 
 <p>
@@ -36,7 +36,7 @@
   <% if @release.notification_sent_at %>
     Sent at: <%= @release.notification_sent_at %>
   <% else %>
-    <%= button_to 'Send email', notify_admin_release_path, method: :patch, data: { confirm: 'Are you sure?', disable_with: 'sending…' }, class: 'btn btn-primary' %>
+    <%= button_to 'Send email', notify_admin_release_path(@release), method: :patch, data: { confirm: 'Are you sure?', disable_with: 'sending…' }, class: 'btn btn-primary' %>
   <% end %>
 </p>
 

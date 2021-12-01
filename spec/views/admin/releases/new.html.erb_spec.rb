@@ -2,9 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'admin/releases/new', type: :view do
   before(:each) do
-    assign(:release, Release.new(
-                       email_template: 'MyText'
-                     ))
+    assign(:release, build(:release, email_subject: 'MyText'))
   end
 
   it 'renders new release form' do

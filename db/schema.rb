@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 2021_11_26_203051) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.datetime "notification_sent_at"
+    t.string "email_subject", null: false
   end
 
   create_table "users", force: :cascade do |t|
