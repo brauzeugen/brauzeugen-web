@@ -18,22 +18,23 @@ gem "caxlsx_rails"
 gem "bootsnap", ">= 1.4.4", require: false
 
 group :development, :test do
+  gem "brakeman", require: false
+  gem "bundler-audit", require: false
   gem "byebug", platforms: %i[mri mingw x64_mingw]
   gem "capybara"
   gem "factory_bot_rails"
   gem "rspec-rails"
   gem "selenium-webdriver"
   gem "shoulda-matchers"
+  gem "standard", require: false
   gem "webdrivers"
 end
 
 group :development do
-  gem "brakeman", require: false
   gem "letter_opener"
   gem "listen", ">= 3.0.5"
   gem "spring"
   gem "spring-watcher-listen"
-  gem "standard", require: false
   gem "web-console", ">= 3.3.0"
 end
 
