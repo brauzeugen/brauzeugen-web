@@ -8,6 +8,6 @@ module Credentials
   end
 
   def self.read_local_config
-    File.read(Rails.root.join('config', 'credentials.local.yml'))
+    File.read(Rails.root.join("config", "credentials.local.yml"))
   end
 end

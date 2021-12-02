@@ -3,8 +3,8 @@ class Release < ApplicationRecord
 
   validates :email_subject, presence: true
   validates :email_template, presence: true
-  validates :distributable_total, numericality: { only_integer: true, greater_than_or_equal_to: 1 }
-  validates :distributable_total, inclusion: { in: ->(i) { [i.distributable_total_was] } },
+  validates :distributable_total, numericality: {only_integer: true, greater_than_or_equal_to: 1}
+  validates :distributable_total, inclusion: {in: ->(i) { [i.distributable_total_was] }},
                                   on: :update,
                                   if: :notification_sent_at
 

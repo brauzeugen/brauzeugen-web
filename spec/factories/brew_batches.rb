@@ -4,6 +4,6 @@ FactoryBot.define do
       "Batch #{n}"
     end
 
-    description { 'What a marvelous ale!' }
+    description { "What a marvelous ale!" }
   end
 end

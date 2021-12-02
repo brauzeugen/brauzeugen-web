@@ -1,7 +1,7 @@
-require 'rails_helper'
+require "rails_helper"
 
-RSpec.describe 'Brew batches', type: :system do
-  it 'only shows published brew batches' do
+RSpec.describe "Brew batches", type: :system do
+  it "only shows published brew batches" do
     published = create(:brew_batch, published_at: 1.minute.ago)
     first_unpublished = create(:brew_batch, published_at: nil)
     second_unpublished = create(:brew_batch, published_at: 1.minute.from_now)
@@ -13,10 +13,10 @@ RSpec.describe 'Brew batches', type: :system do
     expect(page).not_to have_text(second_unpublished.name)
   end
 
-  it 'orders batches with publishing date' do
-    create(:brew_batch, published_at: 1.minute.ago, serial_number: 'BG20-A')
-    create(:brew_batch, published_at: 2.minutes.ago, serial_number: 'BG20-B')
-    create(:brew_batch, published_at: 3.minutes.ago, serial_number: 'BG20-C')
+  it "orders batches with publishing date" do
+    create(:brew_batch, published_at: 1.minute.ago, serial_number: "BG20-A")
+    create(:brew_batch, published_at: 2.minutes.ago, serial_number: "BG20-B")
+    create(:brew_batch, published_at: 3.minutes.ago, serial_number: "BG20-C")
 
     visit brew_batches_path
 

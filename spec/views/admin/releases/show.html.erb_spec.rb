@@ -1,11 +1,11 @@
-require 'rails_helper'
+require "rails_helper"
 
-RSpec.describe 'admin/releases/show', type: :view do
+RSpec.describe "admin/releases/show", type: :view do
   before(:each) do
-    @release = assign(:release, create(:release, email_template: 'MyText'))
+    @release = assign(:release, create(:release, email_template: "MyText"))
   end
 
-  it 'renders attributes in <p>' do
+  it "renders attributes in <p>" do
     render
     expect(rendered).to match(/MyText/)
   end

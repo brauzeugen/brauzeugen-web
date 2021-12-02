@@ -1,9 +1,9 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe Voice, type: :model do
   it { is_expected.to belong_to(:brew_batch) }
 
-  describe '#claimed' do
+  describe "#claimed" do
     subject { Voice.claimed }
 
     before do
@@ -14,7 +14,7 @@ RSpec.describe Voice, type: :model do
     it { is_expected.to contain_exactly(an_object_having_attributes(user: User.last)) }
   end
 
-  describe '#unclaimed' do
+  describe "#unclaimed" do
     subject { Voice.unclaimed }
 
     before do

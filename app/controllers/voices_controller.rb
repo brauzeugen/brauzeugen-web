@@ -5,14 +5,15 @@ class VoicesController < ApplicationController
   # GET /voices/:token
   def show
     if @voice.user.present?
-      render 'voices/show'
+      render "voices/show"
     else
       redirect_to claim_voice_path(@voice)
     end
   end
 
   # GET /voices/:token/claim
-  def new_claim; end
+  def new_claim
+  end
 
   # PATCH /voices/:token/claim
   def create_claim
@@ -30,7 +31,7 @@ class VoicesController < ApplicationController
 
   def ensure_no_owner
     if @voice.user.present?
-      flash[:notice] = 'Voice already taken'
+      flash[:notice] = "Voice already taken"
       redirect_to @voice
     end
   end

@@ -13,7 +13,8 @@ module Admin
     end
 
     # GET /brew_batches/1/edit
-    def edit; end
+    def edit
+    end
 
     # POST /brew_batches
     def create
@@ -21,7 +22,7 @@ module Admin
 
       respond_to do |format|
         if @brew_batch.save
-          format.html { redirect_to admin_brew_batches_url, notice: 'Batch was successfully created.' }
+          format.html { redirect_to admin_brew_batches_url, notice: "Batch was successfully created." }
         else
           format.html { render :new }
         end
@@ -32,7 +33,7 @@ module Admin
     def update
       respond_to do |format|
         if @brew_batch.update(brew_batch_params)
-          format.html { redirect_to admin_brew_batches_url, notice: 'Batch was successfully updated.' }
+          format.html { redirect_to admin_brew_batches_url, notice: "Batch was successfully updated." }
         else
           format.html { render :edit }
         end
@@ -42,15 +43,15 @@ module Admin
     # DELETE /brew_batches/1
     def destroy
       if @brew_batch.destroy
-        redirect_to admin_brew_batches_url, notice: 'Batch was successfully destroyed.'
+        redirect_to admin_brew_batches_url, notice: "Batch was successfully destroyed."
       else
-        redirect_to admin_brew_batches_url, error: 'Batch could not be created.'
+        redirect_to admin_brew_batches_url, error: "Batch could not be created."
       end
     end
 
     def issue_voices
       if @brew_batch.voices.any?
-        redirect_to admin_brew_batches_url, notice: 'There are already voices issued. No new ones have been created.'
+        redirect_to admin_brew_batches_url, notice: "There are already voices issued. No new ones have been created."
         return
       end
 
@@ -59,7 +60,7 @@ module Admin
         @brew_batch.issue_voices!(issue_voices_amount)
         redirect_to admin_brew_batches_url, notice: "Issued #{issue_voices_amount} voices for #{@brew_batch.name}"
       else
-        redirect_to admin_brew_batches_url, error: 'No correct amount. No voices issued.'
+        redirect_to admin_brew_batches_url, error: "No correct amount. No voices issued."
       end
     end
 

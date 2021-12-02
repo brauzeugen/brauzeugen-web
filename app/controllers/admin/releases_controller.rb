@@ -8,7 +8,8 @@ module Admin
     end
 
     # GET /admin/releases/1
-    def show; end
+    def show
+    end
 
     # GET /admin/releases/new
     def new
@@ -16,14 +17,15 @@ module Admin
     end
 
     # GET /admin/releases/1/edit
-    def edit; end
+    def edit
+    end
 
     # POST /admin/releases
     def create
       @release = Release.new(release_params)
 
       if @release.save
-        redirect_to [:admin, @release], notice: 'Release was successfully created.'
+        redirect_to [:admin, @release], notice: "Release was successfully created."
       else
         render :new
       end
@@ -32,7 +34,7 @@ module Admin
     # PATCH/PUT /admin/releases/1
     def update
       if @release.update(release_params)
-        redirect_to [:admin, @release], notice: 'Release was successfully updated.'
+        redirect_to [:admin, @release], notice: "Release was successfully updated."
       else
         render :edit
       end
@@ -41,7 +43,7 @@ module Admin
     # DELETE /admin/releases/1
     def destroy
       @release.destroy!
-      redirect_to admin_releases_url, notice: 'Release was successfully destroyed.'
+      redirect_to admin_releases_url, notice: "Release was successfully destroyed."
     end
 
     # PATCH /admin/releases/1/notify
@@ -51,7 +53,7 @@ module Admin
         UserMailer.with(entitlement: entitlement).release_email.deliver_later
       end
 
-      redirect_to [:admin, @release], notice: 'Email was successfully sent'
+      redirect_to [:admin, @release], notice: "Email was successfully sent"
     end
 
     private

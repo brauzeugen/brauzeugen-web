@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.describe UserMailer, type: :mailer do
-  describe '#release_email' do
+  describe "#release_email" do
     subject { UserMailer.with(entitlement: Entitlement.first).release_email }
 
     before do

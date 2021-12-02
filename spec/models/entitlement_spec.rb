@@ -1,8 +1,8 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe Entitlement, type: :model do
-  describe 'factory' do
-    it 'works' do
+  describe "factory" do
+    it "works" do
       create(:entitlement)
     end
   end

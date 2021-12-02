@@ -1,11 +1,12 @@
 module Admin
   class PagesController < AdminController
-    def dashboard; end
+    def dashboard
+    end
 
     def users
       @users = User.left_joins(:voices)
-                   .group(:id)
-                   .order('COUNT(voices.id) DESC')
+        .group(:id)
+        .order("COUNT(voices.id) DESC")
     end
 
     def voices
