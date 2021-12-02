@@ -4,3 +4,4 @@ set -e
 
 bundle exec standardrb
 bundle exec rspec
+bundle exec brakeman --quiet

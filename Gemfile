@@ -23,16 +23,17 @@ group :development, :test do
   gem "factory_bot_rails"
   gem "rspec-rails"
   gem "selenium-webdriver"
-  gem "standard", require: false
   gem "shoulda-matchers"
   gem "webdrivers"
 end
 
 group :development do
+  gem "brakeman", require: false
   gem "letter_opener"
   gem "listen", ">= 3.0.5"
   gem "spring"
   gem "spring-watcher-listen"
+  gem "standard", require: false
   gem "web-console", ">= 3.3.0"
 end
 
