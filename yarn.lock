@@ -2,6 +2,3 @@
 # yarn lockfile v1
 
 
-qcode-decoder@^0.1.0:
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/qcode-decoder/-/qcode-decoder-0.1.0.tgz#03872f637a06bd63c79559b97179eed0c9adb79e"
