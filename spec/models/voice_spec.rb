@@ -11,7 +11,7 @@ RSpec.describe Voice, type: :model do
       create(:voice, :claimed)
     end
 
-    it { is_expected.to contain_exactly(an_object_having_attributes(user: User.last)) }
+    it { is_expected.to contain_exactly(an_object_having_attributes(user_id: User.last.id)) }
   end
 
   describe ".unclaimed" do
