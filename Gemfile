@@ -27,6 +27,7 @@ group :development, :test do
   gem "selenium-webdriver"
   gem "shoulda-matchers"
   gem "standard", require: false
+  gem "super_diff"
   gem "webdrivers"
 end
 
