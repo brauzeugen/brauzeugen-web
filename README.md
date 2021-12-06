@@ -5,7 +5,7 @@ The Brauzeugen web app and token management system.
 ## Setup
 
 Requires:
-* Ruby 2.5
+* Ruby 3
 * Postgres 9+
 
 You can set the project up locally by running:
@@ -20,6 +20,6 @@ You can set the project up locally by running:
 
 ## License
 
-Copyright (c) 2018 Josua Schmid
+Copyright (c) 2018-2021 Josua Schmid
 
 Released under AGPLv3
