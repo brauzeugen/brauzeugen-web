@@ -7,6 +7,7 @@ abort("The Rails environment is running in production mode!") if Rails.env.produ
 require "rspec/rails"
 # Add additional requires below this line. Rails is not loaded until this point!
 
+require_relative "support"
 require "webdrivers/chromedriver"
 require "capybara/rspec"
 require "super_diff/rspec-rails"
@@ -60,6 +61,7 @@ RSpec.configure do |config|
   # config.filter_gems_from_backtrace("gem name")
 
   config.include FactoryBot::Syntax::Methods
+  config.include IsAnticipated
 
   config.before(:each, type: :system) do
     driven_by :rack_test
@@ -70,18 +72,3 @@ RSpec.configure do |config|
   end
 end
 
-Shoulda::Matchers.configure do |config|
-  config.integrate do |with|
-    with.test_framework :rspec
-    with.library :active_record
-    with.library :active_model
-  end
-end
-
-def http_basic_auth_env
-  user = "admin"
-  password = ""
-  {
-    HTTP_AUTHORIZATION: ActionController::HttpAuthentication::Basic.encode_credentials(user, password)
-  }
-end
