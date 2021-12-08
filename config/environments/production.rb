@@ -69,12 +69,11 @@ Rails.application.configure do
   # config.action_mailer.raise_delivery_errors = false
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    port: ENV["MAILGUN_SMTP_PORT"],
-    address: ENV["MAILGUN_SMTP_SERVER"],
-    user_name: ENV["MAILGUN_SMTP_LOGIN"],
-    password: ENV["MAILGUN_SMTP_PASSWORD"],
-    domain: "liste.brauzeugen.ch",
-    authentication: :plain
+    port: ENV["SENDPULSE_SMTP_PORT"],
+    address: ENV["SENDPULSE_SMTP_SERVER"],
+    user_name: ENV["SENDPULSE_SMTP_LOGIN"],
+    password: ENV["SENDPULSE_SMTP_PASSWORD"],
+    domain: "brauzeugen.ch"
   }
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
