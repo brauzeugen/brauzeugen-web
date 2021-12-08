@@ -13,7 +13,7 @@ RSpec.describe UserMailer, type: :mailer do
 
     it { is_expected.to have_attributes(to: [User.first.email]) }
 
-    describe 'templating' do
+    describe "templating" do
       before do
         Release.last.update(email_template: template)
       end
@@ -31,17 +31,16 @@ RSpec.describe UserMailer, type: :mailer do
           "At the end: 5%"
         end
 
-        xit { is_anticipated.not_to raise_error }
+        it { is_anticipated.not_to raise_error }
       end
 
-      context 'when template contains invalid key' do
+      context "when template contains invalid key" do
         let(:template) do
           "A %{blub} and 5%"
         end
 
-        xit { is_anticipated.not_to raise_error }
+        it { is_anticipated.not_to raise_error }
       end
-
     end
   end
 end

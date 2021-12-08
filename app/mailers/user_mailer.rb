@@ -7,8 +7,7 @@ class UserMailer < ApplicationMailer
     mail(to: @user.email, subject: @release.email_subject) do |format|
       format.text { render plain: interpolated(@release.email_template) }
     end
-
-  rescue StandardError => exception
+  rescue => exception
     Raven.capture_exception(exception) if defined? Raven
     Rails.logger.warn(exception)
   end
@@ -16,11 +15,11 @@ class UserMailer < ApplicationMailer
   private
 
   def interpolated(string)
-    string.gsub(/%[^{]/, '%%') % {
-      user_email: @user.email,
-      user_voices_count: @user.voices.count,
-      release_distributable_total: @release.distributable_total,
-      entitlement_value: @entitlement.value
-    }
+    string.gsub(/%{.*?}/, {
+      "%{user_email}" => @user.email,
+      "%{user_voices_count}" => @user.voices.count,
+      "%{release_distributable_total}" => @release.distributable_total,
+      "%{entitlement_value}" => @entitlement.value
+    })
   end
 end
