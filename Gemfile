@@ -4,7 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby File.read(".ruby-version")
 
 gem "pg", ">= 0.18", "< 2.0"
-gem "puma"
+gem "puma", "~> 5.6"
 gem "rails", "~> 6.1.0"
 gem "sass-rails", "~> 6.0"
 
