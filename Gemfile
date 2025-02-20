@@ -4,7 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby File.read(".ruby-version")
 
 gem "pg", ">= 0.18", "< 2.0"
-gem "puma"
+gem "puma", "~> 5.6"
 gem "rails", "~> 6.1.0"
 gem "sass-rails", "~> 6.0"
 
@@ -16,6 +16,9 @@ gem "caxlsx"
 gem "caxlsx_rails"
 
 gem "bootsnap", ">= 1.4.4", require: false
+
+# TODO: pinned until upgrade to rails 7.1 fixes https://stackoverflow.com/questions/79360526/uninitialized-constant-activesupportloggerthreadsafelevellogger-nameerror
+gem "concurrent-ruby", "1.3.4"
 
 group :development, :test do
   gem "brakeman", require: false
