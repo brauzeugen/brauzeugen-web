@@ -17,6 +17,9 @@ gem "caxlsx_rails"
 
 gem "bootsnap", ">= 1.4.4", require: false
 
+# TODO: pinned until upgrade to rails 7.1 fixes https://stackoverflow.com/questions/79360526/uninitialized-constant-activesupportloggerthreadsafelevellogger-nameerror
+gem "concurrent-ruby", "1.3.4"
+
 group :development, :test do
   gem "brakeman", require: false
   gem "bundler-audit", require: false
