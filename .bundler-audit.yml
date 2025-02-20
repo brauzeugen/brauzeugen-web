@@ -1,0 +1,4 @@
+---
+ignore:
+  - CVE-2024-54133 # See https://github.com/brauzeugen/brauzeugen-web/issues/30
+  - GHSA-vvfq-8hwr-qm4m
